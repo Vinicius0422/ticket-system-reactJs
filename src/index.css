@@ -1,0 +1,32 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: bordex-box;
+}
+
+html{
+  font-size: 62.5%;
+}
+
+html, body, #root{
+  height: 100%;
+}
+
+body{
+  font-size: 1.4rem;
+  font-family: sans-serif;
+  background-color: #EFEFEF;
+}
+
+a{
+  text-decoration: none;
+}
+
+ul{
+  list-style: none;
+}
+
+button{
+  cursor: pointer;
+  border:: none;
+}
