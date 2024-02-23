@@ -1,9 +1,10 @@
 import { createContext, useState } from "react";
-import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
 import { doc, setDoc, getDoc } from 'firebase/firestore'
 
 import { auth, db } from '../config/fireBaseConnection'
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export const AuthContext = createContext();
 
@@ -34,7 +35,9 @@ export const AuthProvider = ({ children }) => {
                 }
 
                 setUser(data);
+                storageUser(data);
                 setLoadingAuth(false);
+                toast.success("Welcome!")
                 navigate("/dashboard")
             })
         })
@@ -42,6 +45,10 @@ export const AuthProvider = ({ children }) => {
             setLoadingAuth(false)
             console.log(e)
         })
+    }
+
+    function storageUser(data){
+        localStorage.setItem('@tickets-user', JSON.stringify(data));
     }
 
 
