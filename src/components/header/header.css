@@ -1,0 +1,88 @@
+header {
+    position: fixed;
+    height: 100%;
+    background-color: var(--bg-secondary);
+    overflow: auto;
+    width: 20rem;
+}
+
+header > div{
+    background-image: url('../../assets/cover.png');
+    background-color: var(--bg-secondary);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 12rem;
+    padding-top: 3rem;
+}
+
+div > img {
+    height: 9rem;
+    display: block;
+    margin: auto;
+    border-radius: 50%;
+    object-fit: cover;
+    filter: drop-shadow(2px 3px 6px #121212);
+    -webkit-filter: drop-shadow(2px 3px 6px #121212);
+}
+
+header > a{
+    display: flex;
+    padding: 1.6rem;
+    align-items: center;
+    font-size: 1.8rem;
+    color: #FFF;
+    opacity: 0.8;
+    transition: ease-in-out 0.5s;
+}
+
+header a:hover{
+    opacity: 1;
+    background-color: #121212;
+}
+
+header a > svg{
+    margin-right: 1rem;
+}
+
+.content{
+    margin-left: 20rem;
+    padding: 1px 16px;
+}
+
+@media screen and (max-width: 768px){
+
+    header{
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    header > div{
+        display: none;
+    }
+
+    header > a{
+        padding: 1.6rem;
+        font-size: 1.5rem;
+    }
+
+    .content{
+        margin: auto 0;
+    }
+}
+
+@media screen and (max-width: 500px){
+
+    header > div{
+        display: none;
+    }
+
+    header a > svg{
+        display: none;
+    }
+    
+}
