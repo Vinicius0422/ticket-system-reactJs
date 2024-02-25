@@ -3,21 +3,19 @@ import { useContext, useState } from "react"
 import { AuthContext } from "../../contexts/auth"
 import { Header } from "../../components/header"
 import { Title } from "../../components/title"
+import { Spinner } from "../../components/spinner"
 import { FiSettings } from 'react-icons/fi'
 
 import './profile.css'
 import avatarLogo from '../../assets/avatar.png'
 import { FiUpload } from 'react-icons/fi'
 import useUpdateProfile from "../../hooks/useUpdateProfile"
-import { doc, updateDoc } from "firebase/firestore"
-import { db } from "../../config/fireBaseConnection"
-import { toast } from "react-toastify"
 
 
 export const Profile = () => {
 
-    const { user, setUser, storageUser, logOut } = useContext(AuthContext);
-    const { updateProfile } = useUpdateProfile();
+    const { user, logOut } = useContext(AuthContext);
+    const { updateProfile, loading } = useUpdateProfile();
     
 
     const [avatarUrl, setAvatarUrl] = useState(user && user.avatarUrl)
@@ -57,7 +55,7 @@ export const Profile = () => {
                 </Title>
 
                 <div className="container">
-                    <form className="form-profile" onSubmit={handleUpdate}>
+                    <form className="form" onSubmit={handleUpdate}>
 
                         <label className="label-avatar">
                             <span>
@@ -73,14 +71,16 @@ export const Profile = () => {
                             )}
 
                         </label>
-                        <div>
+                        <div className="input-btn">
                             <label>Name</label>
                             <input type="text" value={name} onChange={(e) => setName(e.target.value)}/>
 
                             <label>E-mail</label>
                             <input type="email" disabled value={email} onChange={(e) => setEmail(e.target.value)}/>
 
-                            <button type="submit">Save</button>
+                            <button type="submit">
+                                {loading ? <Spinner/> : "Save"}
+                            </button>
                         </div>
                     </form>
                 </div>

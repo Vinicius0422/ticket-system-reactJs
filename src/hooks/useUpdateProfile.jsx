@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { AuthContext } from '../contexts/auth'
 
 import { doc, updateDoc } from 'firebase/firestore'
@@ -10,8 +10,10 @@ const useUpdateProfile = () => {
 
     const { user, setUser, storageUser } = useContext(AuthContext)
 
-    const updateProfile = async (name, avatarImage, avatarUrl) => {
+    const[loading, setLoading] = useState(false);
 
+    const updateProfile = async (name, avatarImage) => {
+        setLoading(true)
         if (name !== '' && avatarImage === null) {
 
             let userUid = user.uid
@@ -27,9 +29,11 @@ const useUpdateProfile = () => {
 
                 setUser(data)
                 storageUser(data)
+                setLoading(false)
                 toast.success("Updated successfully")
             })
                 .catch((error) => {
+                    setLoading(false)
                     toast.error(error)
                     console.log(error)
                 })
@@ -57,17 +61,19 @@ const useUpdateProfile = () => {
 
                                     setUser(data)
                                     storageUser(data)
+                                    setLoading(false)
                                     toast.success("Updated successfully")
                                 })
                         })
                         .catch((error) => {
+                            setLoading(false)
                             toast.error(error)
                         })
                 })
         }
     }
 
-    return { updateProfile }
+    return { updateProfile, loading }
 }
 
 export default useUpdateProfile;
