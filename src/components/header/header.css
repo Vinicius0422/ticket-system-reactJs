@@ -12,12 +12,13 @@ header {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 12rem;
+    height: 14rem;
     padding-top: 3rem;
 }
 
 .avatar-header {
-    height: 9rem;
+    height: 11rem;
+    width: 11rem;
     display: block;
     margin: auto;
     border-radius: 50%;

@@ -41,7 +41,7 @@ export const AuthProvider = ({ children }) => {
                 let uid = value.user.uid
 
                 await setDoc(doc(db, "users", uid), {
-                    nome: name,
+                    name: name,
                     avatarUrl: null
                 })
                     .then(() => {
@@ -77,7 +77,7 @@ export const AuthProvider = ({ children }) => {
 
                 let data = {
                     uid: uid,
-                    name: docSnap.data().nome,
+                    name: docSnap.data().name,
                     email: value.user.email,
                     avatarUrl: docSnap.data().avatarUrl
                 }
@@ -113,7 +113,9 @@ export const AuthProvider = ({ children }) => {
             signIn,
             loadingAuth,
             loading,
-            logOut
+            logOut,
+            setUser,
+            storageUser
         }}>
             {children}
         </AuthContext.Provider>
