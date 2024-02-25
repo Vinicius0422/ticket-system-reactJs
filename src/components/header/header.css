@@ -6,7 +6,7 @@ header {
     width: 20rem;
 }
 
-header > div{
+.avatar-container {
     background-image: url('../../assets/cover.png');
     background-color: var(--bg-secondary);
     background-position: center;
@@ -16,7 +16,7 @@ header > div{
     padding-top: 3rem;
 }
 
-div > img {
+.avatar-header {
     height: 9rem;
     display: block;
     margin: auto;
@@ -61,7 +61,7 @@ header a > svg{
         overflow: hidden;
     }
 
-    header > div{
+    .avatar-container{
         display: none;
     }
 
@@ -77,8 +77,9 @@ header a > svg{
 
 @media screen and (max-width: 500px){
 
-    header > div{
-        display: none;
+    header > a{
+        padding: 1.4rem;
+        font-size: 1.4rem;
     }
 
     header a > svg{

@@ -12,8 +12,8 @@ export const Header = () => {
 
     return (
         <header>
-            <div>
-                <img src={user.avatarUrl === null ? avatarImg : user.avatarUrl} alt="" />
+            <div className='avatar-container'>
+                <img className='avatar-header' src={user.avatarUrl === null ? avatarImg : user.avatarUrl} alt="" />
             </div>
             <Link to="/dashboard">
                 <FiHome color='#FFF' size={24}/>

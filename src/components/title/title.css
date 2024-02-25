@@ -3,12 +3,19 @@
     align-items: center;
     justify-content: flex-start;
     padding: 1rem;
-    margin: 1.5rem 0;
+    margin: 1.5rem 0 0 0;
     background-color: #fff;
     border-radius: 0.5rem;
 }
 
 .title span{
     margin-left: 1rem;
-    font-size: 2rem;
+    font-size: 1.8rem;
+}
+
+@media screen and (max-width: 768px){
+    .title span{
+        font-size: 1.5rem;
+    }
+    
 }
