@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 
 import logo from '../../assets/logo.png'
 import { AuthContext } from "../../contexts/auth"
+import { Spinner } from "../../components/spinner"
 
 
 export const SignUp = () => {
@@ -32,8 +33,8 @@ export const SignUp = () => {
                     <input type='email' placeholder='email@email.com' value={email} onChange={(e) => setEmail(e.target.value)}/>
                     <input type='password' placeholder='password' value={password} onChange={(e) => setPassword(e.target.value)} />
 
-                    <button type='submit'>{
-                        loadingAuth ? 'Carregando...' : 'Sign Up'
+                    <button type='submit' disabled={loadingAuth}>{
+                        loadingAuth ? <Spinner/> : 'Sign Up'
                     }</button>
                 </form>
                 <Link to='/'>Sign In</Link>

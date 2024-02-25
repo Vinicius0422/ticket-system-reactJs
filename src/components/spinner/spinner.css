@@ -1,0 +1,11 @@
+
+
+.spinner svg, i{
+    animation: spin 1s ease infinite;
+}
+
+@keyframes spin{
+    to{
+        transform: rotate(360deg);
+    }
+}
